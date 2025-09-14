@@ -6,6 +6,7 @@ To develop a Django application to store and retrieve data from Car Inventory Da
 
 ## ENTITY RELATIONSHIP DIAGRAM
 
+![alt text](<WhatsApp Image 2025-09-13 at 11.16.21_3ba1ce08.jpg>)
 
 
 ## DESIGN STEPS
@@ -23,12 +24,36 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+### Admin.py:
 
+from django.contrib import admin
+from . models import Car
+# Register your models here.
+
+admin.site.register(Car)
+
+class CarAdmin(admin.ModelAdmin):
+    list_display = ('id','brand','model','year','price')
+
+### Models.py:
+
+from django.db import models
+
+# Create your models here.
+class Car(models.Model):
+    id = models.IntegerField(primary_key=True)
+    brand = models.CharField(max_length=15)
+    model = models.CharField(max_length=30)
+    year = models.DateField()
+    price = models.IntegerField()
+
+```
 
 
 ## OUTPUT
 
-Include the screenshot of your admin page.
+![alt text](<Screenshot 2025-09-14 204228.png>)
 
 
 ## RESULT
